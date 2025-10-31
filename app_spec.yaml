@@ -1,0 +1,28 @@
+name: felipe-lemos-app
+services:
+  - name: api
+    github:
+      repo: your-user/your-repo
+      branch: main
+      deploy_on_push: true
+    dockerfile_path: server-ts/Dockerfile
+    run_command: npm run dev
+    envs:
+      - key: DATABASE_URL
+        scope: RUN_AND_BUILD
+        value: postgres://postgres:postgres@db:5432/felipe_lemos
+  - name: client
+    github:
+      repo: your-user/your-repo
+      branch: main
+      deploy_on_push: true
+    dockerfile_path: client/Dockerfile
+    run_command: npm run dev -- --host
+    envs:
+      - key: VITE_API_URL
+        scope: RUN_AND_BUILD
+        value: http://api:3001
+databases:
+  - name: felipe_lemos
+    engine: pg
+    version: "15"

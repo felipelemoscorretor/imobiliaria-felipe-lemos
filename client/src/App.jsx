@@ -1,0 +1,1 @@
+export default function App(){return (<div style={{padding:20}}>Frontend placeholder - replace with real app</div>)}

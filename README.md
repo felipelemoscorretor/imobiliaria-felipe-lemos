@@ -1,0 +1,1 @@
+Monorepo with CI/CD workflows and DigitalOcean app_spec. See README_CI.md for details.
